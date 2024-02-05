@@ -14,8 +14,8 @@ body {
 }
 
 #center {
-    height: 30%;
-    width: 70%;
+    height: 300px;
+    width: 700px;
     border: 1px solid black;
     position: absolute;
     top: 50%;
