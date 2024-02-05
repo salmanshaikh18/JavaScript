@@ -72,27 +72,20 @@ In summary, `getBoundingClientRect()` is a useful method for obtaining informati
 
 ## mapRange in GSAP
 
-In the context of GSAP (GreenSock Animation Platform), `mapRange` is not a built-in function or feature. However, it seems like you might be referring to a common programming concept known as "mapping" or "remapping," where a value from one range is converted or translated to another range.
+1. mapRange(inMin, inMax, outMin, outMax, valueToMap)
+1. inMin : Number - The lower bound of the initial range to map from
+2. inMax : Number - The upper bound of the initial range to map from
+3. outMin : Number - The lower bound of the range to map to
+4. outMax : Number - The upper bound of the range to map to
+5. valueToMap : Number - The value that should be mapped (typically it's between inMin and inMax).
+Returns: the mapped number
 
-If you are working with GSAP and need to map values, you might use standard JavaScript techniques or utility functions to achieve the desired mapping effect. Here's a basic explanation of how mapping works:
+Example:
 
-Let's say you have a value `x` in the range `[a, b]` (input range), and you want to map it to a new value `y` in the range `[c, d]` (output range). The formula for mapping is:
+```JavaScript
+//maps 0 in the -10 to 10 range to the same position in the 100 to 200 range
+gsap.utils.mapRange(-10, 10, 100, 200, 0); // 150
 
-\[ y = \frac{(x - a)}{(b - a)} \cdot (d - c) + c \]
-
-Here's a simple JavaScript function to perform this mapping:
-
-```javascript
-function mapRange(value, inputMin, inputMax, outputMin, outputMax) {
-  return ((value - inputMin) / (inputMax - inputMin)) * (outputMax - outputMin) + outputMin;
-}
-
-// Example usage:
-var inputValue = 50; // Assuming this value is in the range [0, 100]
-var mappedValue = mapRange(inputValue, 0, 100, 200, 400);
-console.log(mappedValue); // Result should be mapped to the range [200, 400]
+// maps 50 in the range from 0 to 100 to the same position in the range from 0 to 500
+gsap.utils.mapRange(0, 100, 0, 500, 50); // 250
 ```
-
-In the example above, the `mapRange` function takes an input value (`inputValue`) and maps it from the range [0, 100] to the range [200, 400]. Adjust the input and output ranges according to your specific needs.
-
-While GSAP provides powerful animation capabilities, the mapping of values is a general programming concept and is not inherently part of GSAP. You can use such mapping functions in conjunction with GSAP animations to control and manipulate values over a specific range.
